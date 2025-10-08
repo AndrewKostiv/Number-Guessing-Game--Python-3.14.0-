@@ -34,4 +34,3 @@ New high score of 3
 Would you like to play again? (y/n): n
 
 # Author: Andrew Kostiv [10/8/2025]
-It was 2:55am when I wrote this, I can't sleep.
