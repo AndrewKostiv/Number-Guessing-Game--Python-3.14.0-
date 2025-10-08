@@ -1,9 +1,9 @@
 import random
 
 def runGame():
+    guess = None
+    count = 0
     randNum = random.randint(1,100)
-    guess:int = 0
-    count:int = 0
 
     while guess != randNum:
         try:
@@ -27,8 +27,9 @@ def runGame():
             print(guess, "is too low")
         else:
             print(guess, "is correct! You took",count,"attempts")
+            updateScore(count)
 
-def askToPlayAgain():
+def playAgain():
     guess = ''
     while guess != 'n':
         try:
@@ -36,13 +37,35 @@ def askToPlayAgain():
         except ValueError:
             print('Invalid input, type either "y" or "n"')
         if guess.lower() == 'y':
-            runGame()
+            return True
         elif guess.lower() == 'n':
-            break
+            return False
         else:
             print('Invalid input, type either "y" or "n"')
 
-runGame()
-askToPlayAgain()
+def updateScore(count:int):
+    highScore:int = None
+    try:
+        with open("highScore.txt", "r") as file:
+            highScore = int(file.read())
+    except FileNotFoundError:
+        print("There is no previous high score")
+        with open("highScore.txt", "w") as file:
+            file.write(str(count))
+        print("Your current high score is", count)
+        return
+    
+    if count < highScore:
+        print("New high score of", count)
+        with open("highScore.txt", "w") as file:
+            file.write(str(count))
+    else:
+        print("High score is still", highScore)
+
+
+isGameDone = False
+while not isGameDone:
+    runGame()
+    isGameDone = not playAgain()
 
 
