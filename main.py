@@ -28,18 +28,21 @@ def runGame():
         else:
             print(guess, "is correct! You took",count,"attempts")
 
+def askToPlayAgain():
+    guess = ''
+    while guess != 'n':
+        try:
+            guess = input("Would you like to play again? (y/n)")
+        except ValueError:
+            print('Invalid input, type either "y" or "n"')
+        if guess.lower() == 'y':
+            runGame()
+        elif guess.lower() == 'n':
+            break
+        else:
+            print('Invalid input, type either "y" or "n"')
+
 runGame()
-guess = ''
-while guess != 'n':
-    try:
-        guess = input("Would you like to play again? (y/n)")
-    except ValueError:
-        print('Invalid input, type either "y" or "n"')
-    if guess.lower() == 'y':
-        runGame()
-    elif guess.lower() == 'n':
-        break
-    else:
-        print('Invalid input, type either "y" or "n"')
+askToPlayAgain()
 
 
