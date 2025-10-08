@@ -1,6 +1,6 @@
 ## Number Guessing Game With High Score (Python)
 
-A simple number guessing game implemented in Python. \n
+A simple number guessing game implemented in Python.
 The program generates a random number between 1 and 100, and the player tries to guess it.
 The game provides hints, tracks attempts, and allows quitting anytime.
 
