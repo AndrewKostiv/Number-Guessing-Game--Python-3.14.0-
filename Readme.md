@@ -21,3 +21,5 @@ git clone https://github.com/AndrewKostiv/Number-Guessing-Game--Python-3.14.0-
 cd Number-Guessing-Game--Python-3.14.0-
 py main.py
 ```
+Author: Andrew Kostiv 
+10/8/2025
